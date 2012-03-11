@@ -1,0 +1,16 @@
+NAME
+    AnyEvent::DateTime - Perl module to create AnyEvent timers from DateTime
+    Events
+
+VERSION
+    version 1.120710
+
+AUTHOR
+    Mark Hindess <soft-cpan@temporalanomaly.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2012 by Mark Hindess.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
