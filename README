@@ -14,8 +14,8 @@ SYNOPSIS
                   DateTime->now->truncate(to => 'minute')->add(minutes => 3),
                 ]);
       my $t;
-      $t = AnyEvent::DateTime->new(set => $set,
-                                   callback => sub {
+      $t = AnyEvent::DateTime->new($set,
+                                   sub {
                                      warn 'Next tick at ', $t->next, "\n"
                                    });
       print 'Next tick will be at ', $t->next, "\n";
@@ -33,6 +33,43 @@ DESCRIPTION
     timers with AnyEvent. It can be used to create timers from DateTime::Set
     objects or from "DateTime::Event" object.
 
+  "new($set, $tick_callback, $empty_callback)"
+    This constructor creates a wrapper around AnyEvent timers which triggers
+    at each time in the DateTime::Set, $set. When triggered the tick
+    callback is called. The tick callback should return true unless it wants
+    all subsequent timers to be cancelled. If the set becomes empty then the
+    optional empty callback is called.
+
+  "new_from_events(\%parameters)"
+    This constructor creates a wrapper around AnyEvent timers which triggers
+    based on a "DateTime::Event" module. The parameter hash has keys:
+
+    type
+           The name of the C<DateTime::Event> module to construct the
+           L<DateTime::Set> from. The C<DateTime::Event::> prefix may be left
+           out.
+
+    method
+          The constructor/method to call on the C<DateTime::Event> module.
+          This parameter is optional and defaults to the constructor, C<new>.
+
+    arguments
+          The arguments to pass to the method. This parameter is optional and
+          defaults to the empty list.
+
+    callback
+          The tick callback as described above.
+
+    empty_callback
+          The optional empty callback as described above.
+
+  "cancel()"
+    This method cancels any outstanding timer.
+
+  "cancel()"
+    This method returns the DateTime object of the next time a timer is due
+    to trigger.
+
 AUTHOR
     Mark Hindess <soft-cpan@temporalanomaly.com>
 
@@ -41,4 +78,11 @@ COPYRIGHT AND LICENSE
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
+
+POD ERRORS
+    Hey! The above document had some coding errors, which are explained
+    below:
+
+    Around line 159:
+        You forgot a '=back' before '=head2'
 
