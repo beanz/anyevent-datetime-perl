@@ -41,6 +41,7 @@
       },
       "test" : {
          "requires" : {
+            "DateTime::Event::Recurrence" : "0",
             "Test::More" : "0"
          }
       }

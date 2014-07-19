@@ -28,6 +28,7 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
+    "DateTime::Event::Recurrence" => 0,
     "Test::More" => 0
   },
   "VERSION" => "1.142000",
@@ -41,6 +42,7 @@ my %FallbackPrereqs = (
   "AnyEvent" => 0,
   "Carp" => 0,
   "Class::Load" => 0,
+  "DateTime::Event::Recurrence" => 0,
   "Scalar::Util" => 0,
   "Test::More" => 0,
   "strict" => 0,
