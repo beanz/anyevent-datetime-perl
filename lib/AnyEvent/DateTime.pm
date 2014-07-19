@@ -156,11 +156,13 @@ has keys:
 
   The optional empty callback as described above.
 
+=back
+
 =head2 C<cancel()>
 
 This method cancels any outstanding timer.
 
-=head2 C<cancel()>
+=head2 C<next()>
 
 This method returns the L<DateTime> object of the next time a timer is
 due to trigger.
